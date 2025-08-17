@@ -8,6 +8,7 @@
   <mat-form-field class="region-wrapper">
     <mat-label>Filter by Region</mat-label>
     <mat-select [(ngModel)]="selectedRegion">
+      <mat-option [value]="''">All Regions</mat-option>
       @for (region of regions(); track region) {
       <mat-option [value]="region">{{ region }}</mat-option>
       }
