@@ -2,7 +2,7 @@
 
 This is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). This project allows users to browse through all countries, filter them by region, search for a specific country, and view more detailed information on a dedicated page. It also features a fully functional light/dark mode theme switcher.
 
-### ✨ [View Live Demo](https://albertbabaiani.github.io/rest-countries-app/)
+### ✨ [View Live Demo](https://rest-countries-app-rouge.vercel.app/countries)
 
 ---
 
