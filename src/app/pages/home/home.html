@@ -1,0 +1,30 @@
+<div class="controls-container">
+  <mat-form-field class="search-wrapper">
+    <mat-label>Search for a country</mat-label>
+    <mat-icon matPrefix>search</mat-icon>
+    <input matInput placeholder="Georgia" [(ngModel)]="searchTerm" />
+  </mat-form-field>
+
+  <mat-form-field class="region-wrapper">
+    <mat-label>Filter by Region</mat-label>
+    <mat-select [(ngModel)]="selectedRegion">
+      @for (region of regions(); track region) {
+      <mat-option [value]="region">{{ region }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+</div>
+
+@if (isLoading()) {
+<div class="spinner-container">
+  <mat-spinner></mat-spinner>
+</div>
+} @else {
+<div class="countries-grid">
+  @for (country of filteredCountries(); track $index) {
+  <app-country-card [country]="country" />
+  } @empty {
+  <p class="not__found">No matches.</p>
+  }
+</div>
+}

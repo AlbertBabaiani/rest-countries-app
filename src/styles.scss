@@ -1,1 +1,89 @@
-/* You can add global styles to this file, and also import other style files */
+// Include theming for Angular Material with `mat.theme()`.
+// This Sass mixin will define CSS variables that are used for styling Angular Material
+// components according to the Material 3 design spec.
+// Learn more about theming and how to use it for your application's
+// custom components at https://material.angular.dev/guide/theming
+@use "@angular/material" as mat;
+
+html {
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$magenta-palette,
+        tertiary: mat.$violet-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+}
+
+body {
+  // Default the application to a light color theme. This can be changed to
+  // `dark` to enable the dark color theme, or to `light dark` to defer to the
+  // user's system settings.
+  color-scheme: light;
+
+  // Set a default background, font and text colors for the application using
+  // Angular Material's system-level CSS variables. Learn more about these
+  // variables at https://material.angular.dev/guide/system-variables
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+
+  // Reset the user agent margin.
+  margin: 0;
+}
+:root {
+  --bg: hsl(0, 0%, 98%);
+  --elements: hsl(0, 0%, 100%);
+  --text: hsl(200, 15%, 8%);
+  --input: hsl(0, 0%, 52%);
+  --shadow: 0 2px 9px rgba(0, 0, 0, 0.05);
+}
+
+body.dark {
+  --bg: hsl(207, 26%, 17%);
+  --elements: hsl(209, 23%, 22%);
+  --text: hsl(0, 0%, 100%);
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.2s linear, color 0.2s linear;
+}
+
+main {
+  padding: 1.5rem;
+
+  @media (min-width: 768px) {
+    padding: 3rem 5rem;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button,
+input,
+select {
+  font-family: inherit;
+  border: none;
+  outline: none;
+}
+
+html,
+body {
+  height: 100%;
+}

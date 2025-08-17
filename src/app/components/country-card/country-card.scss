@@ -1,0 +1,44 @@
+.card {
+  min-height: 20rem;
+  transition: transform 0.2s ease-in-out;
+
+  border-radius: 0.3125rem;
+  background: var(--elements);
+  box-shadow: 0 0 7px 2px rgba(0, 0, 0, 0.03);
+
+  @media (min-width: 400px) {
+    min-height: 25rem;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  img {
+    aspect-ratio: 1 / 0.5625;
+    object-fit: cover;
+  }
+
+  &__body {
+    padding: 1.5rem 1.5rem 3rem;
+  }
+
+  &__title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+
+    color: var(--text);
+    font-weight: 800;
+    line-height: 1.625rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+
+    strong {
+      font-weight: 600;
+    }
+  }
+}

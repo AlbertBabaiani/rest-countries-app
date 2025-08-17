@@ -1,0 +1,19 @@
+<header class="header">
+  <div class="container">
+    <a routerLink="/" class="title">Where in the world?</a>
+
+    <button
+      (click)="toggleTheme()"
+      class="theme-switcher"
+      aria-label="Toggle dark mode"
+    >
+      @if(themeService.theme() === 'dark') {
+      <mat-icon>dark_mode</mat-icon>
+      } @else {
+      <mat-icon>wb_sunny</mat-icon>
+      }
+
+      <span>{{ themeService.theme() === "dark" ? "Dark" : "Light" }} Mode</span>
+    </button>
+  </div>
+</header>

@@ -1,0 +1,39 @@
+.footer-toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+  margin-top: 3rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+
+  .dark-theme & {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1rem;
+}
+
+.profile-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.2s ease-in-out;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.profile-image {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid;
+}

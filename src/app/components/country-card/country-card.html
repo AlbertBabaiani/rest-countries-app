@@ -1,0 +1,16 @@
+<a [routerLink]="['/country', country().name.common]">
+  <mat-card class="card">
+    <img
+      mat-card-image
+      [src]="country().flags.svg"
+      [alt]="country().flags.alt"
+    />
+
+    <mat-card-content class="card__body">
+      <h2 mat-card-title class="card__title">{{ country().name.common }}</h2>
+      <p><strong>Population:</strong> {{ country().population | number }}</p>
+      <p><strong>Region:</strong> {{ country().region }}</p>
+      <p><strong>Capital:</strong> {{ country().capital?.[0] || 'N/A' }}</p>
+    </mat-card-content>
+  </mat-card>
+</a>

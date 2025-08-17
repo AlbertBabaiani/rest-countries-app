@@ -1,59 +1,127 @@
-# Restcountries
+# REST Countries API with Color Theme Switcher 🌍
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.5.
+This is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). This project allows users to browse through all countries, filter them by region, search for a specific country, and view more detailed information on a dedicated page. It also features a fully functional light/dark mode theme switcher.
 
-## Development server
+### ✨ [View Live Demo](https://albertbabaiani.github.io/rest-countries-app/)
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## Table of Contents
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- [The Challenge](#the-challenge)
+- [Screenshots](#screenshots)
+- [Links](#links)
+- [Built With](#built-with)
+- [Features](#features)
+- [Installation](#installation)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## The Challenge
 
-```bash
-ng generate component component-name
-```
+Users should be able to:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- See all countries from the API on the homepage.
+- Search for a country using an `input` field.
+- Filter countries by region.
+- Click on a country to see more detailed information on a separate page.
+- Click through to the border countries on the detail page.
+- Toggle the color scheme between light and dark mode.
+- View the optimal layout for the app depending on their device's screen size.
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+## Screenshots
 
-To build the project run:
+### Desktop Preview
 
-```bash
-ng build
-```
+#### Home Page
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+![Desktop Home Light Preview](./screenshots/desktop-home-page-light.png)
 
-## Running unit tests
+![Desktop Home Dark Preview](./screenshots/desktop-home-page-dark.png)
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+![Mobile Home Light Preview](./screenshots/phone-home-page-light.png)
 
-```bash
-ng test
-```
+![Mobile Home Dark Preview](./screenshots/phone-home-page-dark.png)
 
-## Running end-to-end tests
+![Desktop Country Details Light Preview](./screenshots/desktop-country-details-page-light.png)
+![Desktop Country Details Dark Preview](./screenshots/desktop-country-details-page-dark.png)
 
-For end-to-end (e2e) testing, run:
+## Links
 
-```bash
-ng e2e
-```
+- **Figma Design:** [Figma Link for REST Countries API](<https://www.figma.com/file/B3G6S34n2PhsSCp6xpeIaj/rest-countries-api-with-color-theme-switcher-v2-(Community)?type=design&node-id=0-1&mode=design&t=D5B8f9V1xovblGn8-0>)
+- **Live Site URL:** [https://albertbabaiani.github.io/rest-countries-app/](https://albertbabaiani.github.io/rest-countries-app/)
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## Built With
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+This project was built using modern web development technologies and libraries to create a responsive and dynamic user experience.
+
+- **Framework:** [Angular](https://angular.io/)
+- **UI Library:** [Angular Material](https://material.angular.io/)
+- **Styling:**
+  - SCSS (Sass)
+  - CSS Flexbox & Grid
+  - Mobile-First Workflow
+- **State Management & Asynchronicity:**
+  - RxJS
+  - Angular Signals
+- **API:** [REST Countries API](https://restcountries.com/)
+- **Tools:**
+  - Angular CLI
+  - TypeScript
+  - Visual Studio Code
+
+---
+
+## Features
+
+- **Dark/Light Mode Theme Toggle:** Seamlessly switch between a light and dark theme, with preferences saved in local storage.
+- **Live Search:** Dynamically filters countries on the homepage as the user types.
+- **Region Filtering:** Allows users to filter the displayed countries by continent.
+- **Detailed Country View:** Clicking on a country card navigates to a detailed page with information like native name, sub-region, currencies, languages, and more.
+- **Border Country Navigation:** On the detail page, users can click on border countries to navigate directly to their respective detail pages.
+- **Robust Error Handling:** Navigating to a non-existent country URL redirects to a clean "404 Not Found" page.
+- **Fully Responsive Design:** The layout adapts beautifully from small mobile screens to large desktop displays.
+
+---
+
+## 🚀 Installation
+
+To run this project locally, follow these simple steps.
+
+1.  **Clone the repository**
+    ```sh
+    git clone [https://github.com/AlbertBabaiani/rest-countries-app.git](https://github.com/AlbertBabaiani/rest-countries-app.git)
+    ```
+2.  **Navigate to the project directory**
+    ```sh
+    cd rest-countries-app
+    ```
+3.  **Install NPM packages**
+    ```sh
+    npm install
+    ```
+4.  **Run the application**
+    ```sh
+    ng serve
+    ```
+    The application will be available at `http://localhost:4200/`.
+
+---
+
+## Author
+
+- **Albert Babaiani**
+- **GitHub:** [@AlbertBabaiani](https://github.com/AlbertBabaiani)
+
+---
+
+## Acknowledgments
+
+- A big thank you to [Frontend Mentor](https://www.frontendmentor.io) for providing this challenging and educational project.
+- The [REST Countries API](https://restcountries.com/) for providing the data.
