@@ -1,9 +1,18 @@
 <div class="controls-container">
   <mat-form-field class="search-wrapper">
-    <mat-label>Search for a country</mat-label>
-    <mat-icon matPrefix>search</mat-icon>
-    <input matInput placeholder="Georgia" [(ngModel)]="searchTerm" />
+    <mat-label>{{
+      searchByCapital() ? "Search by Capital" : "Search for a country"
+    }}</mat-label>
+    <input
+      matInput
+      [placeholder]="searchByCapital() ? 'Tbilisi' : 'Georgia'"
+      [(ngModel)]="searchTerm"
+    />
   </mat-form-field>
+
+  <mat-slide-toggle class="search-toggle" [(ngModel)]="searchByCapital">
+    Search by Capital
+  </mat-slide-toggle>
 
   <mat-form-field class="region-wrapper">
     <mat-label>Filter by Region</mat-label>

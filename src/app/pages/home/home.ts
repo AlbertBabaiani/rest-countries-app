@@ -12,6 +12,7 @@ import {
 } from '@angular/material/select';
 import { MatInput } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSlideToggle } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-home',
@@ -25,6 +26,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatSelect,
     MatInput,
     MatIconModule,
+    MatSlideToggle,
   ],
   templateUrl: './home.html',
   styleUrl: './home.scss',
@@ -47,14 +49,27 @@ export class Home {
   searchTerm = signal<string>('');
   selectedRegion = signal<string>('');
 
+  searchByCapital = signal<boolean>(false);
+
   filteredCountries = computed(() => {
     const term = this.searchTerm().toLowerCase();
     const region = this.selectedRegion();
+    const byCapital = this.searchByCapital();
 
     return this.countries().filter((country) => {
-      const nameMatch = country.name.common.toLowerCase().includes(term);
       const regionMatch = !region || country.region === region;
-      return nameMatch && regionMatch;
+
+      if (byCapital) {
+        const capitalMatch =
+          !term ||
+          (country.capital &&
+            country.capital[0] &&
+            country.capital[0].toLowerCase().includes(term));
+        return regionMatch && capitalMatch;
+      } else {
+        const nameMatch = country.name.common.toLowerCase().includes(term);
+        return regionMatch && nameMatch;
+      }
     });
   });
 
