@@ -40,16 +40,66 @@ Users should be able to:
 
 #### Home Page
 
-![Desktop Home Light Preview](./screenshots/desktop-home-page-light.png)
+<div align="center">
+  <h3>Desktop Home Experience</h3>
+</div>
 
-![Desktop Home Dark Preview](./screenshots/desktop-home-page-dark.png)
+<table align="center" style="border: none; background-color: transparent;">
+  <tr align="center">
+    <td><b>Light Theme</b></td>
+    <td><b>Dark Theme</b></td>
+  </tr>
+  <tr align="center" valign="top">
+    <td>
+      <img src="./screenshots/desktop-home-page-light.png" alt="Desktop Home Light" width="450" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"/>
+    </td>
+    <td>
+      <img src="./screenshots/desktop-home-page-dark.png" alt="Desktop Home Dark" width="450" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);"/>
+    </td>
+  </tr>
+</table>
 
-![Mobile Home Light Preview](./screenshots/phone-home-page-light.png)
+<br/>
 
-![Mobile Home Dark Preview](./screenshots/phone-home-page-dark.png)
+<div align="center">
+  <h3>Country Details View</h3>
+</div>
 
-![Desktop Country Details Light Preview](./screenshots/desktop-country-details-page-light.png)
-![Desktop Country Details Dark Preview](./screenshots/desktop-country-details-page-dark.png)
+<table align="center" style="border: none; background-color: transparent;">
+  <tr align="center">
+    <td><b>Light Theme</b></td>
+    <td><b>Dark Theme</b></td>
+  </tr>
+  <tr align="center" valign="top">
+    <td>
+      <img src="./screenshots/desktop-country-details-page-light.png" alt="Country Details Light" width="450" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"/>
+    </td>
+    <td>
+      <img src="./screenshots/desktop-country-details-page-dark.png" alt="Country Details Dark" width="450" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);"/>
+    </td>
+  </tr>
+</table>
+
+<br/>
+
+<div align="center">
+  <h3>Mobile Experience</h3>
+</div>
+
+<table align="center" style="border: none; background-color: transparent;">
+  <tr align="center">
+    <td><b>Light Theme</b></td>
+    <td><b>Dark Theme</b></td>
+  </tr>
+  <tr align="center" valign="top">
+    <td>
+      <img src="./screenshots/phone-home-page-light.png" alt="Mobile Home Light" width="250" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"/>
+    </td>
+    <td>
+      <img src="./screenshots/phone-home-page-dark.png" alt="Mobile Home Dark" width="250" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);"/>
+    </td>
+  </tr>
+</table>
 
 ## Links
 
