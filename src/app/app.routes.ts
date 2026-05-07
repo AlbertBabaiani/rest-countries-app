@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { Home } from './pages/home/home';
-import { NotFound } from './pages/not-found/not-found';
+import { Home } from './features/home/home';
+import { NotFound } from './features/not-found/not-found';
 
 export const routes: Routes = [
   {
@@ -16,8 +16,8 @@ export const routes: Routes = [
   {
     path: 'country/:name',
     loadComponent: () =>
-      import('./pages/country-detail/country-detail').then(
-        (m) => m.CountryDetail
+      import('./features/country-detail/country-detail').then(
+        (m) => m.CountryDetail,
       ),
     title: 'Country Details',
   },

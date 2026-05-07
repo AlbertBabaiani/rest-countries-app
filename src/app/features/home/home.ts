@@ -1,5 +1,4 @@
 import { Component, computed, inject, signal } from '@angular/core';
-import { Country } from '../../services/country';
 import { ICountry } from '../../models/country.model';
 import { FormsModule } from '@angular/forms';
 import { CountryCard } from '../../components/country-card/country-card';
@@ -13,6 +12,7 @@ import {
 import { MatInput } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggle } from '@angular/material/slide-toggle';
+import { Country } from '../../core/services/country';
 
 @Component({
   selector: 'app-home',

@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { ICountry } from '../models/country.model';
+import { ICountry } from '../../models/country.model';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +16,7 @@ export class Country {
 
   getAllCountries(): Observable<ICountry[]> {
     return this.http.get<ICountry[]>(
-      `${this.baseUrl}/all?fields=name,capital,flags,population,region`
+      `${this.baseUrl}/all?fields=name,capital,flags,population,region`,
     );
   }
 
@@ -28,7 +28,7 @@ export class Country {
 
   getCountriesByCodes(codes: string[]): Observable<ICountry[]> {
     return this.http.get<ICountry[]>(
-      `${this.baseUrl}/alpha?codes=${codes.join(',')}`
+      `${this.baseUrl}/alpha?codes=${codes.join(',')}`,
     );
   }
 }

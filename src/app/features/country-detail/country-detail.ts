@@ -1,11 +1,11 @@
 import { AsyncPipe, DecimalPipe } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { Country } from '../../services/country';
 import { catchError, Observable, of, switchMap } from 'rxjs';
 import { ICountry } from '../../models/country.model';
 import { MatButton } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { Country } from '../../core/services/country';
 
 @Component({
   selector: 'app-country-detail',
@@ -25,14 +25,14 @@ export class CountryDetail implements OnInit {
     this.country$ = this.route.paramMap.pipe(
       switchMap((params) =>
         this.countryService.getCountryByName(
-          params.get('name')?.toLocaleLowerCase() || ''
-        )
+          params.get('name')?.toLocaleLowerCase() || '',
+        ),
       ),
       catchError((error) => {
         console.error('Failed to fetch country:', error);
         this.router.navigate(['/404']);
         return of(null);
-      })
+      }),
     );
     this.borderCountries$ = this.country$.pipe(
       switchMap((country) => {
@@ -40,7 +40,7 @@ export class CountryDetail implements OnInit {
           return of([]);
         }
         return this.countryService.getCountriesByCodes(country.borders);
-      })
+      }),
     );
   }
 

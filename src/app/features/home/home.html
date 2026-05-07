@@ -19,22 +19,22 @@
     <mat-select [(ngModel)]="selectedRegion">
       <mat-option [value]="''">All Regions</mat-option>
       @for (region of regions(); track region) {
-      <mat-option [value]="region">{{ region }}</mat-option>
+        <mat-option [value]="region">{{ region }}</mat-option>
       }
     </mat-select>
   </mat-form-field>
 </div>
 
 @if (isLoading()) {
-<div class="spinner-container">
-  <mat-spinner></mat-spinner>
-</div>
+  <div class="spinner-container">
+    <mat-spinner></mat-spinner>
+  </div>
 } @else {
-<div class="countries-grid">
-  @for (country of filteredCountries(); track $index) {
-  <app-country-card [country]="country" />
-  } @empty {
-  <p class="not__found">No matches.</p>
-  }
-</div>
+  <div class="countries-grid">
+    @for (country of filteredCountries(); track $index) {
+      <app-country-card [country]="country" />
+    } @empty {
+      <p class="not__found">No matches.</p>
+    }
+  </div>
 }
