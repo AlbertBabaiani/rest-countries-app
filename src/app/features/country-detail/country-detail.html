@@ -1,9 +1,9 @@
 <a routerLink="/countries" matButton>
   <mat-icon>keyboard_backspace</mat-icon>
-  Back</a
->
+  Back
+</a>
 
-@if (country$ | async; as country) {
+@if (country(); as country) {
   <div class="country-details">
     <img
       [src]="country.flags.svg"
@@ -27,11 +27,11 @@
         </div>
       </div>
 
-      @if ((borderCountries$ | async)?.length) {
+      @if (borderCountries().length) {
         <div class="border-countries">
           <strong>Border Countries:</strong>
           <div class="borders-list">
-            @for (border of borderCountries$ | async; track border.cca3) {
+            @for (border of borderCountries(); track border.cca3) {
               <a
                 [routerLink]="['/country', border.name.common]"
                 matButton="filled"
