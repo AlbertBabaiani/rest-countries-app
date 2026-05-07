@@ -1,7 +1,6 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { ICountry } from '../../models/country.model';
 import { FormsModule } from '@angular/forms';
-import { CountryCard } from '../../components/country-card/country-card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {
   MatFormField,
@@ -13,6 +12,7 @@ import { MatInput } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggle } from '@angular/material/slide-toggle';
 import { Country } from '../../core/services/country';
+import { CountryCard } from './country-card/country-card';
 
 @Component({
   selector: 'app-home',
@@ -32,7 +32,9 @@ import { Country } from '../../core/services/country';
   styleUrl: './home.scss',
 })
 export class Home {
-  regions = signal<string[]>([
+  private coreService = inject(Country);
+
+  readonly regions = signal<string[]>([
     'Africa',
     'Americas',
     'Asia',
@@ -40,23 +42,20 @@ export class Home {
     'Oceania',
   ]);
 
-  private countryService = inject(Country);
-
-  countries = signal<ICountry[]>([]);
-
-  isLoading = signal<boolean>(true);
-
   searchTerm = signal<string>('');
   selectedRegion = signal<string>('');
-
   searchByCapital = signal<boolean>(false);
+
+  isLoading = computed(() => this.countries().length === 0);
+  countries = this.coreService.countries;
 
   filteredCountries = computed(() => {
     const term = this.searchTerm().toLowerCase();
     const region = this.selectedRegion();
     const byCapital = this.searchByCapital();
+    const allCountries = this.countries();
 
-    return this.countries().filter((country) => {
+    return allCountries.filter((country) => {
       const regionMatch = !region || country.region === region;
 
       if (byCapital) {
@@ -72,11 +71,4 @@ export class Home {
       }
     });
   });
-
-  ngOnInit() {
-    this.countryService.getAllCountries().subscribe((data) => {
-      this.isLoading.set(false);
-      this.countries.set(data);
-    });
-  }
 }

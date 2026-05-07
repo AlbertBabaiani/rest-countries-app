@@ -1,7 +1,8 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, Signal } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { ICountry } from '../../models/country.model';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Injectable({
   providedIn: 'root',
@@ -10,15 +11,12 @@ export class Country {
   private http = inject(HttpClient);
   private baseUrl = 'https://restcountries.com/v3.1';
 
-  constructor() {
-    this.getAllCountries();
-  }
-
-  getAllCountries(): Observable<ICountry[]> {
-    return this.http.get<ICountry[]>(
+  readonly countries: Signal<ICountry[]> = toSignal(
+    this.http.get<ICountry[]>(
       `${this.baseUrl}/all?fields=name,capital,flags,population,region`,
-    );
-  }
+    ),
+    { initialValue: [] },
+  );
 
   getCountryByName(name: string): Observable<ICountry> {
     return this.http

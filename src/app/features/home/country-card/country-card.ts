@@ -1,8 +1,8 @@
 import { Component, input, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ICountry } from '../../models/country.model';
 import { MatCard, MatCardContent, MatCardImage } from '@angular/material/card';
 import { DecimalPipe } from '@angular/common';
+import { ICountry } from '../../../models/country.model';
 
 @Component({
   selector: 'app-country-card',
