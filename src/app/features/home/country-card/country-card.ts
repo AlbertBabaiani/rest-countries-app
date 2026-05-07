@@ -2,7 +2,7 @@ import { Component, input, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MatCard, MatCardContent, MatCardImage } from '@angular/material/card';
 import { DecimalPipe } from '@angular/common';
-import { ICountry } from '../../../models/country.model';
+import { CountryModel } from '../../../models/country.model';
 
 @Component({
   selector: 'app-country-card',
@@ -11,5 +11,5 @@ import { ICountry } from '../../../models/country.model';
   styleUrl: './country-card.scss',
 })
 export class CountryCard {
-  country = input.required<ICountry>();
+  country = input.required<CountryModel>();
 }

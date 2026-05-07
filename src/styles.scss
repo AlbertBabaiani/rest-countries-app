@@ -59,7 +59,9 @@ body {
   font-family: "Nunito Sans", sans-serif;
   background-color: var(--bg);
   color: var(--text);
-  transition: background-color 0.2s linear, color 0.2s linear;
+  transition:
+    background-color 0.2s linear,
+    color 0.2s linear;
 }
 
 main {

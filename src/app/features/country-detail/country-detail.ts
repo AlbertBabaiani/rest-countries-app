@@ -1,8 +1,8 @@
 import { DecimalPipe } from '@angular/common';
 import { Component, inject, input } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { catchError, filter, Observable, of, switchMap } from 'rxjs';
-import { ICountry } from '../../models/country.model';
+import { catchError, filter, of, switchMap } from 'rxjs';
+import { CountryModel } from '../../models/country.model';
 import { MatButton } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { Country } from '../../core/services/country';
@@ -44,18 +44,18 @@ export class CountryDetail {
   country = toSignal(this.country$);
   borderCountries = toSignal(this.borderCountries$, { initialValue: [] });
 
-  getFirstNativeName(country: ICountry): string {
+  getFirstNativeName(country: CountryModel): string {
     const key = Object.keys(country.name.nativeName)[0];
     return country.name.nativeName[key].common;
   }
 
-  getCurrencies(country: ICountry): string {
+  getCurrencies(country: CountryModel): string {
     return Object.values(country.currencies)
       .map((c) => c.name)
       .join(', ');
   }
 
-  getLanguages(country: ICountry): string {
+  getLanguages(country: CountryModel): string {
     return Object.values(country.languages).join(', ');
   }
 }
