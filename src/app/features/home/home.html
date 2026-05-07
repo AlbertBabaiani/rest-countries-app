@@ -23,6 +23,15 @@
       }
     </mat-select>
   </mat-form-field>
+
+  <mat-form-field class="sort-wrapper">
+    <mat-label>Sort By</mat-label>
+    <mat-select [(ngModel)]="sortBy">
+      @for (option of sortOptions(); track option.value) {
+        <mat-option [value]="option.value">{{ option.label }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
 </div>
 
 @if (isLoading()) {

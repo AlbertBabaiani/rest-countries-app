@@ -1,6 +1,6 @@
 # REST Countries API with Color Theme Switcher 🌍
 
-This is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). This project allows users to browse through all countries, filter them by region, search for a specific country, and view more detailed information on a dedicated page. It also features a fully functional light/dark mode theme switcher.
+This is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). This project allows users to browse through all countries, filter them by region, sort by various metrics, search for a specific country, and view more detailed information on a dedicated page. It also features a fully functional light/dark mode theme switcher and dynamic browser metadata.
 
 ### ✨ [View Live Demo](https://rest-countries-app-rouge.vercel.app/countries)
 
@@ -27,6 +27,7 @@ Users should be able to:
 - Search for a country using an `input` field.
 - Search by a capital using an `input` field.
 - Filter countries by region.
+- **Sort countries by Name (A-Z, Z-A) and Population (Lowest, Highest).**
 - Click on a country to see more detailed information on a separate page.
 - Click through to the border countries on the detail page.
 - Toggle the color scheme between light and dark mode.
@@ -51,10 +52,10 @@ Users should be able to:
   </tr>
   <tr align="center" valign="top">
     <td>
-      <img src="./screenshots/desktop-home-page-light.png" alt="Desktop Home Light" width="450" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"/>
+      <img src="src/assets/screenshots/desktop-home-page-light.png" alt="Desktop Home Light" width="450" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"/>
     </td>
     <td>
-      <img src="./screenshots/desktop-home-page-dark.png" alt="Desktop Home Dark" width="450" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);"/>
+      <img src="src/assets/screenshots/desktop-home-page-dark.png" alt="Desktop Home Dark" width="450" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);"/>
     </td>
   </tr>
 </table>
@@ -72,10 +73,10 @@ Users should be able to:
   </tr>
   <tr align="center" valign="top">
     <td>
-      <img src="./screenshots/desktop-country-details-page-light.png" alt="Country Details Light" width="450" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"/>
+      <img src="src/assets/screenshots/desktop-country-details-page-light.png" alt="Country Details Light" width="450" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"/>
     </td>
     <td>
-      <img src="./screenshots/desktop-country-details-page-dark.png" alt="Country Details Dark" width="450" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);"/>
+      <img src="src/assets/screenshots/desktop-country-details-page-dark.png" alt="Country Details Dark" width="450" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);"/>
     </td>
   </tr>
 </table>
@@ -93,10 +94,10 @@ Users should be able to:
   </tr>
   <tr align="center" valign="top">
     <td>
-      <img src="./screenshots/phone-home-page-light.png" alt="Mobile Home Light" width="250" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"/>
+      <img src="src/assets/screenshots/phone-home-page-light.png" alt="Mobile Home Light" width="250" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"/>
     </td>
     <td>
-      <img src="./screenshots/phone-home-page-dark.png" alt="Mobile Home Dark" width="250" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);"/>
+      <img src="src/assets/screenshots/phone-home-page-dark.png" alt="Mobile Home Dark" width="250" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);"/>
     </td>
   </tr>
 </table>
@@ -112,32 +113,29 @@ Users should be able to:
 
 This project was built using modern web development technologies and libraries to create a responsive and dynamic user experience.
 
-- **Framework:** [Angular](https://angular.io/)
+- **Framework:** [Angular](https://angular.io/) (using standalone components)
 - **UI Library:** [Angular Material](https://material.angular.io/)
 - **Styling:**
   - SCSS (Sass)
   - CSS Flexbox & Grid
   - Mobile-First Workflow
-- **State Management & Asynchronicity:**
-  - RxJS
-  - Angular Signals
+- **State Management & Architecture:**
+  - **Angular Signals:** Declarative state using `signal`, `computed`, and `effect()`
+  - **RxJS Interop:** Seamlessly bridging HTTP streams to signals with `toSignal` and `toObservable`
+  - **Modern Routing:** Utilizing Route Input Bindings to decouple components from `ActivatedRoute`
 - **API:** [REST Countries API](https://restcountries.com/)
-- **Tools:**
-  - Angular CLI
-  - TypeScript
-  - Visual Studio Code
 
 ---
 
 ## Features
 
+- **Modern Declarative State:** Built entirely with Angular Signals for heavily optimized, granular DOM updates without manual RxJS subscriptions.
+- **Dynamic Browser Metadata:** Utilizing Angular's `Title` service and `DOCUMENT` token to dynamically update the browser tab title and favicon to match the currently viewed country's flag and name.
+- **Advanced Sorting & Filtering:** Users can filter by continent, search by country name or capital, and sort the grid by name or population dynamically.
 - **Dark/Light Mode Theme Toggle:** Seamlessly switch between a light and dark theme, with preferences saved in local storage.
-- **Live Search:** Dynamically filters countries on the homepage as the user types.
-- **Region Filtering:** Allows users to filter the displayed countries by continent.
 - **Detailed Country View:** Clicking on a country card navigates to a detailed page with information like native name, sub-region, currencies, languages, and more.
-- **Border Country Navigation:** On the detail page, users can click on border countries to navigate directly to their respective detail pages.
+- **Border Country Navigation:** On the detail page, users can click on border countries to navigate directly to their respective detail pages safely using mapped HTTP queries.
 - **Robust Error Handling:** Navigating to a non-existent country URL redirects to a clean "404 Not Found" page.
-- **Fully Responsive Design:** The layout adapts beautifully from small mobile screens to large desktop displays.
 
 ---
 
@@ -146,7 +144,8 @@ This project was built using modern web development technologies and libraries t
 To run this project locally, follow these simple steps.
 
 1.  **Clone the repository**
-    ```sh
+
+````sh
     git clone [https://github.com/AlbertBabaiani/rest-countries-app.git](https://github.com/AlbertBabaiani/rest-countries-app.git)
     ```
 2.  **Navigate to the project directory**
@@ -176,3 +175,4 @@ To run this project locally, follow these simple steps.
 
 - A big thank you to [Frontend Mentor](https://www.frontendmentor.io) for providing this challenging and educational project.
 - The [REST Countries API](https://restcountries.com/) for providing the data.
+````
